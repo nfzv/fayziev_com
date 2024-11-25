@@ -21,11 +21,13 @@ export function BlogPosts({ pageSize = 5 }) {
             className="flex flex-col space-y-1 mb-4"
             href={`/blog/${post.slug}`}
           >
-            <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2 md:items-center">
+            <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2 items-center">
               <p className="w-auto tabular-nums">
-                {post.metadata.publishedAt} / <span className="tracking-tight text-blue-700 underline decoration-blue-700 decoration-1">
+                {post.metadata.publishedAt}
+              </p>
+              <p>|</p>
+              <p className="tracking-tight text-blue-700 underline decoration-blue-700 decoration-1">
                 {post.metadata.title}
-              </span>
               </p>
             </div>
           </Link>

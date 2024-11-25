@@ -2,11 +2,11 @@ import Link from 'next/link'
 
 const navItems = {
   '/blog': {
-    name: 'blog',
+    name: 'Blog',
   },
   "mailto:iamaidenlight@gmail.com":
   {
-    name: 'send a letter',
+    name: 'Send a letter',
   },
 }
 
@@ -22,7 +22,7 @@ export function Navbar() {
             <Link
               key="nurbek fayziev"
               href="/"
-              className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1  m-1 font-semibold"
+              className="transition-all flex align-middle relative py-1 text-lg mx-2 my-1 font-semibold"
             >
               Nurbek Fayziev
             </Link>
@@ -32,7 +32,7 @@ export function Navbar() {
                   <Link
                     key={path}
                     href={path}
-                    className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1 underline decoration-sky-200"
+                    className="transition-all flex align-middle relative py-1 px-2 m-1 text-blue-700 underline decoration-blue-700 decoration-1"
                   >
                     {name}
                   </Link>

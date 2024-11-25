@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import { highlight } from 'sugar-high'
 import React from 'react'
+import Prism from 'prismjs'
+// Add necessary language imports
+import 'prismjs/components/prism-yaml'
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -45,12 +47,33 @@ function CustomLink(props) {
 }
 
 function RoundedImage(props) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />
+  return <Image alt={props.alt} className="rounded-md" {...props} />
 }
 
-function Code({ children, ...props }) {
-  let codeHTML = highlight(children)
-  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+function Code({ className, children, ...props }) {
+  const language = className?.match(/language-(\w+)/)?.[1] || 'text'
+  const defaultComp = <code {...props}>{children}</code>
+  
+  if (language === 'text') return defaultComp
+  
+  try {
+    const code = Prism.highlight(
+      children?.toString() || '',
+      Prism.languages[language] || Prism.languages.plaintext,
+      language
+    )
+    
+    return (
+        <code 
+          dangerouslySetInnerHTML={{ __html: code }} 
+          className={className} 
+          {...props} 
+        />
+    )
+  } catch (e) {
+    console.error(`Language ${language} not supported:`, e)
+    return defaultComp
+  }
 }
 
 function slugify(str) {

@@ -4,7 +4,7 @@ const { themeVariants, prefersLight, prefersDark } = require("tailwindcss-theme-
 module.exports = {
   theme: {
     colors: {
-      'white': "#fafafa"
+      'white': "#f6f6ef"
     }
   },
   plugins: [
@@ -17,6 +17,7 @@ module.exports = {
           mediaQuery: prefersDark /* "@media (prefers-color-scheme: dark)" */,
         },
       },
+      defaultTheme: 'light',
     }),
   ],
 }

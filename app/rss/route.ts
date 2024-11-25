@@ -27,9 +27,9 @@ export async function GET() {
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
   <rss version="2.0">
     <channel>
-        <title>My Portfolio</title>
+        <title>Nurbek Fayziev</title>
         <link>${baseUrl}</link>
-        <description>This is my portfolio RSS feed</description>
+        <description>Nurbek is a 25-year old engineer and product visionary with more than 5 years of experience in leading projects and designing/building software systems from the ground up</description>
         ${itemsXml}
     </channel>
   </rss>`

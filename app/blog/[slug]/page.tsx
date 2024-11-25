@@ -87,8 +87,11 @@ export default function Blog({ params }) {
         {post.metadata.title}
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+        <p className="text-sm">
           {formatDate(post.metadata.publishedAt)}
+        </p>
+        <p className="text-sm">
+          {post.metadata.minuteRead} min read
         </p>
       </div>
       {post.metadata.image && (
@@ -97,7 +100,7 @@ export default function Blog({ params }) {
           alt={post.metadata.title}
           width={1200}
           height={628}
-          className="rounded-lg py-4"
+          className="rounded-md py-4 border border-slate-200"
         />
       )}
       <article className="prose">
