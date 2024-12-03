@@ -15,6 +15,18 @@ software systems from the ground up.`} <span className='underline'>Domains of ex
         <h1 className="text-lg font-semibold pb-4">Recent posts</h1>
         <BlogPosts pageSize={5} />
       </div>
+      <div className="my-9">
+        <h1 className="text-lg font-semibold">Fun things</h1>
+        <ul className='prose'>
+          <li>
+            <a href='/time-flies'>Time Flies</a>
+          </li>
+          <li>
+            <a href='/fortune-cookie'>Fortune Cookie</a>
+          </li>
+        </ul>
+        
+      </div>
     </section>
   )
 }
