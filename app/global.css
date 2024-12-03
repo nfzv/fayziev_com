@@ -60,9 +60,6 @@ html {
   @apply m-0;
 }
 
-h1 {
-  font-family: "Libre Baskerville", Georgia, serif;
-}
 
 .prose p {
   @apply my-4 text-neutral-700;

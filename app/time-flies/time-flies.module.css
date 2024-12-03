@@ -1,0 +1,48 @@
+
+.container {
+  flex-grow: 3;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.canvas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 0 25% 0 25%;
+  padding-right: 2%;
+  overflow: hidden;
+
+}
+
+.label {
+  margin-top: 25px;
+  color: rgb(220, 220, 220);
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+.made {
+  text-align: center;
+  line-height: 1.8;
+  font-family: monospace;
+  margin-top: auto;
+  margin-bottom: 20px;
+  font-size: 10px;
+  color: rgb(220, 220, 220);
+}
+
+.made a {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid white;
+}
+
