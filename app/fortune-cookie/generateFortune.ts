@@ -16,7 +16,7 @@ export async function generateFortune(): Promise<string> {
     return fortune.choices[0].message.content || "Your fortune is yet to be written."
   } catch (error) {
     console.error("Error fetching fortune:", error)
-    return "The future is cloudy. You are in control of your destiny."
+    return "The future is cloudy. You are the master of your destiny."
   }
 }
 
