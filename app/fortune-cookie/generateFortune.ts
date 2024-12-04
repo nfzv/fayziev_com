@@ -6,10 +6,13 @@ const client = new Groq();
 export async function generateFortune(): Promise<string> {
   const params:ChatCompletionCreateParamsNonStreaming = {
     messages: [
-      { role: 'system', content: "You are a fortune-telling oracle; craft one-line fortunes that are entertaining, realistic and perhaps humiliating - no extra text, just the fortune itself. You mostly address the user directly." },
+      { role: 'system', content: "You are a fortune-telling oracle; craft one-line fortunes that are entertaining, realistic and perhaps humiliating - one or two sentences, no extra text, just the fortune itself. You mostly address the user directly." },
       { role: 'user', content: 'Create a fortune' },
     ],
-    model: 'llama3-groq-70b-8192-tool-use-preview',
+    temperature: 1,
+    max_tokens: 512,
+    top_p: 1,
+    model: 'gemma2-9b-it',
   };
   try {
     const fortune: Groq.Chat.ChatCompletion = await client.chat.completions.create(params);
