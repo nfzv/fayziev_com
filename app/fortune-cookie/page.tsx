@@ -1,5 +1,14 @@
 import FortuneCookie from './fortune-cookie'
 import { generateFortune } from './generateFortune'
+import type { Metadata } from 'next'
+
+
+export const metadata: Metadata = {
+  title: 'Fortune Cookie',
+  description: 'A fortune cookie that generates one-line fortunes using Groq API and Llama3 model',
+  authors: [{ name: 'Nurbek Fayziev', url: 'https://fayziev.com' }],
+  creator: 'Nurbek Fayziev',
+}
 
 export default async function Home() {  
   async function getFortune(): Promise<string> {
