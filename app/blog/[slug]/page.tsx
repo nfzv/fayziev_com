@@ -3,6 +3,7 @@ import { CustomMDX } from 'app/components/mdx'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
 import Image from 'next/image'
+import Tag from 'app/components/tag'
 
 export async function generateStaticParams() {
   let posts = getBlogPosts()
@@ -94,13 +95,20 @@ export default function Blog({ params }) {
           {post.metadata.minuteRead} min read
         </p>
       </div>
+      {post.metadata.tags && (
+        <div className="flex gap-2 flex-wrap mb-6">
+          {post.metadata.tags.map(tag => (
+            <Tag key={tag} label={tag} selectedTag={null} />
+          ))}
+        </div>
+      )}
       {post.metadata.image && (
         <Image
           src={post.metadata.image}
           alt={post.metadata.title}
-          width={1200}
+          width={628}
           height={628}
-          className="rounded-md py-4 border border-slate-200"
+          className="rounded-md border border-slate-200"
         />
       )}
       <article className="prose">

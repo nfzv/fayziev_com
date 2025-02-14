@@ -5,6 +5,7 @@ import React from 'react'
 import Prism from 'prismjs'
 // Add necessary language imports
 import 'prismjs/components/prism-yaml'
+import { InfoBox } from './infobox'
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -120,6 +121,7 @@ let components = {
   a: CustomLink,
   code: Code,
   Table,
+  InfoBox
 }
 
 export function CustomMDX(props) {

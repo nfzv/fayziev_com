@@ -7,6 +7,7 @@ type Metadata = {
   summary: string
   image?: string
   minuteRead: string
+  tags: string[] // Add this line
 }
 
 function parseFrontmatter(fileContent: string) {
@@ -20,8 +21,17 @@ function parseFrontmatter(fileContent: string) {
   frontMatterLines.forEach((line) => {
     let [key, ...valueArr] = line.split(': ')
     let value = valueArr.join(': ').trim()
-    value = value.replace(/^['"](.*)['"]$/, '$1') // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value
+
+    if (key.trim() === 'tags') {
+      // Remove enclosing brackets, if any
+      value = value.replace(/^\[(.*)\]$/, '$1')
+      // Split into an array, remove quotes and trim each tag
+      const tags = value.split(',').map(tag => tag.trim().replace(/^['"](.*)['"]$/, '$1'))
+      metadata.tags = tags
+    } else {
+      value = value.replace(/^['"](.*)['"]$/, '$1') // Remove quotes for other values
+      metadata[key.trim() as Exclude<keyof Metadata, 'tags'>] = value
+    }
   })
 
   return { metadata: metadata as Metadata, content }

@@ -1,31 +1,56 @@
 import Link from 'next/link'
-import { formatDate, getBlogPosts } from 'app/blog/utils'
+import { getBlogPosts } from 'app/blog/utils'
+import Tag from './tag'
 
-export function BlogPosts({ pageSize = 5 }) {
-  let allBlogs = getBlogPosts()
+type PageProps = {
+  searchParams: { tag?: string | null }
+  pageSize?: number
+  includeTags?: boolean
+}
+
+export function BlogPosts({ searchParams, pageSize = 5, includeTags = true }: PageProps) {
+  const selectedTag = searchParams.tag ?? null
+  const allBlogs = getBlogPosts()
+
+  // Get unique tags from all posts
+  const allTags = Array.from(
+    new Set(allBlogs.flatMap((post) => post.metadata.tags || []))
+  ).sort()
+
+  // Filter posts by selected tag
+  const filteredBlogs = selectedTag
+    ? allBlogs.filter((post) => post.metadata.tags?.includes(selectedTag))
+    : allBlogs
 
   return (
     <div>
-      {allBlogs
-        .sort((a, b) => {
-          if (
-            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
-          ) {
-            return -1
-          }
-          return 1
-        })
+      {includeTags && (<div className="flex gap-2 mb-8 flex-wrap">
+        <Tag key={"all"} label={"all"} selectedTag={selectedTag} />
+        {allTags.map((tag) => (
+          <Tag key={tag} label={tag} selectedTag={selectedTag} />
+        ))}
+      </div>)}
+      {filteredBlogs
+        .sort(
+          (a, b) =>
+            new Date(b.metadata.publishedAt).getTime() -
+            new Date(a.metadata.publishedAt).getTime()
+        )
         .map((post) => (
           <Link
             key={post.slug}
             className="flex flex-col space-y-1 mb-4"
             href={`/blog/${post.slug}`}
           >
-            <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2 md:items-center">
-              <p className="w-auto tabular-nums">
-                {post.metadata.publishedAt} / <span className="tracking-tight text-blue-700 underline decoration-blue-700 decoration-1">
-                {post.metadata.title}
-              </span>
+            <div className="flex items-center justify-between space-x-2">
+              <p className="text-blue-700 cursor-pointer">
+                <span className='hover:underline '>{post.metadata.title}</span>
+                <span className="ml-2 text-sm text-gray-500">
+                  - {new Date(post.metadata.publishedAt).toLocaleDateString('en-US', {
+                    month: 'short',
+                    year: 'numeric',
+                  })}
+                </span>
               </p>
             </div>
           </Link>
