@@ -1,0 +1,74 @@
+---
+title: 'SimSun 12pt: A Default with a Legacy'
+publishedAt: '2025-07-13'
+summary: 'From SimSun to Nothing OS: An exploration of SimSun – the legacy of Chinese typography'
+minuteRead: 5
+image: '/assets/blog/simsun-a-default-with-a-legacy/cover.png'
+tags: ['culture', 'design', 'web']
+---
+
+
+## Why do certain Chinese products come with this product.
+
+Have you ever seen this font? The chances you have once in a lifetime come across this font is very high. You may have accidentally visited a red website or your kid recently ordered something from Temu, and there you might have seen a manual written in this exact font.
+
+But have you ever wondered why this exact font is still used by **CJK** *(Chinese, Japanese and Koreans)*? 
+
+After 25 years, I just did, and I find it quite interesting.
+
+## In short:
+There is a font called **SimSun** aka “_the Times New Roman_” of Simplified Chinese, primarily found in Windows OS and developed by Beijing ZhongYi Electronics Co. Ltd. in 2001. 
+
+It dominated the Chinese printing presses and, to a slightly lesser extent, digital content.
+
+This font is a legacy of early computing in China, where it was chosen for its wide availability and compatibility. It became the de facto standard for Simplified Chinese text.
+
+As most of the content is in Chinese, there was not much attention given to Latin characters due to it being a secondary concern - it supports it and that's it! 
+
+
+## For curious minds:
+
+There are more than **20,000 glyphs** in a simplified Chinese font. And such fonts often weigh **5–10MB**. Yes, that’s a lot – and I assume enough to impact [_First Contentful Paint_](https://web.dev/articles/fcp) on websites with this locale, unless you take measures to optimize it. As far as I know, it is still an ongoing challenge in China.
+
+As said earlier, any non-CJK character is secondary, and it has to adapt to the form factor of the Chinese characters. Differences in space and style of Chinese glyphs affect Latin characters too. Therefore, there wasn't much importance given to the style of Latin characters. It just supports them.
+
+Most, if not all, Chinese characters are nicely fit in a square box of reportedly [**1em**](http://designwithfontforge.com/en-US/The_EM_Square.html) with even spacing all around – you can lay them out vertically, horizontally or diagonally – and they'll look roughly the same. Roman characters, on the other hand, are slightly different – there are characters like **“l”, “p”, “q”** that usually differ in dimensions.
+
+<InfoBoxAny>
+  <Image
+    src="/assets/blog/simsun-a-default-with-a-legacy/asiveheard-snippet.png"
+    alt="A text snippet. States 'As I've heard' in SimSun font"
+    style={{ float: 'right', marginRight: '1.5rem', marginTop: '0.2rem' }}
+    width={150}
+    height={50}
+  /> As I write this in Microsoft Word using the same font, I noticed an odd effect – the space after the apostrophe is as **HUGE** as my student loan!
+</InfoBoxAny>
+
+This is because SimSun was designed to be a **monospaced** font, meaning each character occupies the same amount of horizontal space. This is great for Chinese characters, but not so much for Latin characters.
+It is part of the reason why you might see it often in Chinese manuals, product descriptions, and even in some Chinese websites.
+
+It is there by default, and I can guarantee that manufacturers producing your massage gun for **2 euros and 99 cents** don’t care about the font they use, as long as it is accessible and gets the job done.
+
+<InfoBoxAny>
+<b>Fun fact:</b><br/> 
+It is also legendarily referred to as “SimSun 12pt” – 12pt because it is allegedly the perfect size for “body” paragraphs."
+</InfoBoxAny>
+
+I admit having had very bad associations with it. As it happened with olives (I used to hate them, now I can kill for olives) – I seem to really like it nowadays.
+
+You may also see it being an inspiration for **Nothing OS**’s default font.
+
+<Image
+  src="/assets/blog/simsun-a-default-with-a-legacy/nothingosfont-snippet.png"
+  alt="A CTA banner from Nothing website. States 'Come to play'."
+  width = {400}
+  height={200}
+/>
+A quick web inspect of their [website](https://nothing.tech) shows it as **NType82**, but we can all agree that it is heavily inspired by SimSun.
+
+I think it has unintentionally become a very iconic font with its own cultural history, and Nothing just pushed it a little further by delicately integrating it into their devices highlighting their taste in design and culture.
+
+**To learn more about SimSun and its successors, you can read these:**
+
+1. [The Complete Beginner’s Guide to Chinese Fonts](https://elements.envato.com/learn/the-complete-beginners-guide-to-chinese-fonts)
+2. [Chinese Standard Web Fonts: A Guide to CSS Font Family Declarations for Web Design in Simplified Chinese | Kendra Schaefer](https://web.archive.org/web/20160304131028/https:/kendraschaefer.com/2012/06/chinese-standard-web-fonts-the-ultimate-guide-to-css-font-family-declarations-for-web-design-in-simplified-chinese/)
