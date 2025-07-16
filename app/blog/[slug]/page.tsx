@@ -106,9 +106,9 @@ export default function Blog({ params }) {
         <Image
           src={post.metadata.image}
           alt={post.metadata.title}
-          width={628}
-          height={628}
-          className="rounded-md border border-slate-200"
+          width={800}
+          height={400}
+          className="w-full h-auto rounded-md border border-slate-200"
         />
       )}
       <article className="prose">

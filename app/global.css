@@ -1,5 +1,11 @@
 @import 'tailwindcss';
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@theme {
+  --font-sans: "Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif";
+  --color-white: #f6f6ef;
+  --color-body-text: rgb(21, 23, 26);
+}
 
 ::selection {
   background-color: #2089e6;
@@ -7,8 +13,15 @@
 }
 
 html {
-  @apply min-w-[360px] bg-[#f6f6ef];
+  @apply bg-white;
 }
+
+body {
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 
 .prose .anchor {
   @apply absolute invisible no-underline;
@@ -33,7 +46,7 @@ html {
   content: '#';
 }
 
-.prose *:hover > .anchor {
+.prose *:hover>.anchor {
   @apply visible;
 }
 
@@ -62,19 +75,28 @@ html {
 
 
 .prose p {
-  @apply my-4 text-neutral-700;
+  @apply font-sans py-4 font-normal;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  color: rgb(21, 23, 26);
 }
 
 .prose h1 {
-  @apply text-8xl font-bold tracking-tight;
+  font-size: calc(2.2em * var(--factor, 1));
+  letter-spacing: -0.02em;
+  font-weight: 500;
 }
 
 .prose h2 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  font-size: calc(1.6em * var(--factor, 1));
+  letter-spacing: -0.02em;
+  font-weight: 500;
 }
 
 .prose h3 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  font-size: calc(1.3em * var(--factor, 1));
+  letter-spacing: -0.017em;
+  font-weight: 500;
 }
 
 .prose h4 {
@@ -93,7 +115,7 @@ html {
   @apply list-decimal pl-6;
 }
 
-.prose > :first-child {
+.prose> :first-child {
   /* Override removing top margin, causing layout shift */
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important;
@@ -104,8 +126,10 @@ pre::-webkit-scrollbar {
 }
 
 pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* Remove Safari input shadow on mobile */
