@@ -35,6 +35,12 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+}
+
 const cx = (...classes) => classes.filter(Boolean).join(' ')
 
 export default function RootLayout({
