@@ -5,7 +5,7 @@ export default function Page() {
   const getAge = birthDate => Math.floor((new Date().getTime() - new Date(birthDate).getTime()) / 3.15576e+10)
   return (
     <section>
-      <Image className='float-left mr-4 mb-4 pr-3' src={`/profile.webp`} alt={"Nurbek Fayziev in Nice, France (2022)"} width="128" height="128" />
+      <Image className='float-left mr-4 mb-4 pr-3' src={`/profile.jpg`} alt={"Nurbek Fayziev in Nice, France (2022)"} width="128" height="128" />
       <p className="mb-6 text-pretty prose">
         {`Nurbek is a ${getAge('1999-11-14')}-year old engineer and product visionary with 5+ years of experience in leading projects and designing/building
 software systems from the ground up.`} <span className='underline'>Domains of expertise:</span> <em>cloud, microservices, web, k8s. </em>
