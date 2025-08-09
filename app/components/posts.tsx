@@ -76,22 +76,24 @@ export function BlogPosts({ searchParams, pageSize = 5, includeTags = true, incl
         .map((post) => (
           <Link
             key={post.slug}
-            className="flex flex-col space-y-1 mb-4"
+            className="flex flex-col space-y-1 mb-4 "
             href={`/blog/${post.slug}`}
           >
-            <div className="flex items-center justify-between space-x-2">
+            <div className="flex flex-col items-start justify-between space-x-2 hover:underline">
               <p className="text-blue-700 cursor-pointer">
-                <span className='hover:underline '>{post.metadata.title}</span>
-                <span className="ml-2 text-sm text-gray-500">
-                  - {new Date(post.metadata.publishedAt).toLocaleDateString('en-US', {
+                {post.metadata.title}
+              </p>
+              <div className='flex justify-between items-center w-full !no-underline'>
+                <span className="text-sm text-gray-500">
+                  {new Date(post.metadata.publishedAt).toLocaleDateString('en-US', {
                     month: 'short',
                     year: 'numeric',
                   })}
                 </span>
-              </p>
               {includeViews && (
                 <ViewCounter slug={post.slug} increment={false} className="text-sm text-gray-500" />
               )}
+              </div>
             </div>
           </Link>
         )).slice(0, thisYearTop5 ? 5 : pageSize)}
