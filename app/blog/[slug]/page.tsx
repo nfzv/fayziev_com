@@ -4,6 +4,7 @@ import { formatDate, getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
 import Image from 'next/image'
 import Tag from 'app/components/tag'
+import { ViewCounter } from 'app/components/view-counter'
 
 export async function generateStaticParams() {
   let posts = getBlogPosts()
@@ -91,9 +92,12 @@ export default function Blog({ params }) {
         <p className="text-sm">
           {formatDate(post.metadata.publishedAt)}
         </p>
-        <p className="text-sm">
-          {post.metadata.minuteRead} min read
-        </p>
+        <div className="flex items-center gap-4">
+          <ViewCounter slug={post.slug} increment={true} />
+          <p className="text-sm">
+            {post.metadata.minuteRead} min read
+          </p>
+        </div>
       </div>
       {post.metadata.tags && (
         <div className="flex gap-2 flex-wrap mb-6">

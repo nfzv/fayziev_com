@@ -1,16 +1,33 @@
 import Link from 'next/link'
-import { getBlogPosts } from 'app/blog/utils'
 import Tag from './tag'
+import { ViewCounter } from './view-counter'
+
+type BlogPost = {
+  metadata: {
+    title: string
+    publishedAt: string
+    summary: string
+    image?: string
+    minuteRead: string
+    tags: string[]
+  }
+  slug: string
+  content: string
+}
 
 type PageProps = {
   searchParams: { tag?: string | null }
   pageSize?: number
   includeTags?: boolean
+  includeViews?: boolean
+  thisYearTop5?: boolean
+  posts: BlogPost[]
+  viewCounts?: Record<string, number>
 }
 
-export function BlogPosts({ searchParams, pageSize = 5, includeTags = true }: PageProps) {
+export function BlogPosts({ searchParams, pageSize = 5, includeTags = true, includeViews = true, thisYearTop5 = false, posts, viewCounts = {} }: PageProps) {
   const selectedTag = searchParams.tag ?? null
-  const allBlogs = getBlogPosts()
+  const allBlogs = posts
 
   // Get unique tags from all posts
   const allTags = Array.from(
@@ -18,9 +35,34 @@ export function BlogPosts({ searchParams, pageSize = 5, includeTags = true }: Pa
   ).sort()
 
   // Filter posts by selected tag
-  const filteredBlogs = selectedTag
+  let filteredBlogs = selectedTag
     ? allBlogs.filter((post) => post.metadata.tags?.includes(selectedTag))
     : allBlogs
+
+  // Apply thisYearTop5 filter if enabled
+  if (thisYearTop5) {
+    const currentYear = new Date().getFullYear()
+    
+    // Filter posts from current year and sort by view count in descending order
+    filteredBlogs = filteredBlogs
+      .filter((post) => {
+        const postYear = new Date(post.metadata.publishedAt).getFullYear()
+        return postYear === currentYear
+      })
+      .sort((a, b) => {
+        const viewsA = viewCounts[a.slug] || 0
+        const viewsB = viewCounts[b.slug] || 0
+        return viewsB - viewsA // Descending order
+      })
+      .slice(0, 5) // Top 5
+  } else {
+    // Default sorting by publish date
+    filteredBlogs = filteredBlogs.sort(
+      (a, b) =>
+        new Date(b.metadata.publishedAt).getTime() -
+        new Date(a.metadata.publishedAt).getTime()
+    )
+  }
 
   return (
     <div>
@@ -31,11 +73,6 @@ export function BlogPosts({ searchParams, pageSize = 5, includeTags = true }: Pa
         ))}
       </div>)}
       {filteredBlogs
-        .sort(
-          (a, b) =>
-            new Date(b.metadata.publishedAt).getTime() -
-            new Date(a.metadata.publishedAt).getTime()
-        )
         .map((post) => (
           <Link
             key={post.slug}
@@ -52,9 +89,12 @@ export function BlogPosts({ searchParams, pageSize = 5, includeTags = true }: Pa
                   })}
                 </span>
               </p>
+              {includeViews && (
+                <ViewCounter slug={post.slug} increment={false} className="text-sm text-gray-500" />
+              )}
             </div>
           </Link>
-        )).slice(0, pageSize)}
+        )).slice(0, thisYearTop5 ? 5 : pageSize)}
     </div>
   )
 }
