@@ -93,7 +93,7 @@ export default function Blog({ params }) {
           {formatDate(post.metadata.publishedAt)}
         </p>
         <div className="flex items-center gap-4">
-          <ViewCounter slug={post.slug} increment={true} />
+          {/* <ViewCounter slug={post.slug} increment={true} /> */}
           <p className="text-sm">
             {post.metadata.minuteRead} min read
           </p>
@@ -116,6 +116,7 @@ export default function Blog({ params }) {
         />
       )}
       <article className="prose">
+      <br/>
         <CustomMDX source={post.content} />
       </article>
     </section>

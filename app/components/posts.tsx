@@ -25,7 +25,7 @@ type PageProps = {
   viewCounts?: Record<string, number>
 }
 
-export function BlogPosts({ searchParams, pageSize = 5, includeTags = true, includeViews = true, thisYearTop5 = false, posts, viewCounts = {} }: PageProps) {
+export function BlogPosts({ searchParams, pageSize = 50, includeTags = true, includeViews = false, thisYearTop5 = false, posts, viewCounts = {} }: PageProps) {
   const selectedTag = searchParams.tag ?? null
   const allBlogs = posts
 
@@ -42,7 +42,7 @@ export function BlogPosts({ searchParams, pageSize = 5, includeTags = true, incl
   // Apply thisYearTop5 filter if enabled
   if (thisYearTop5) {
     const currentYear = new Date().getFullYear()
-    
+
     // Filter posts from current year and sort by view count in descending order
     filteredBlogs = filteredBlogs
       .filter((post) => {
@@ -76,24 +76,20 @@ export function BlogPosts({ searchParams, pageSize = 5, includeTags = true, incl
         .map((post) => (
           <Link
             key={post.slug}
-            className="flex flex-col space-y-1 mb-4 "
+            className="flex flex-col space-y-1 mb-4 hover:border-b-1 hover:border-blue-700 pb-1"
             href={`/blog/${post.slug}`}
           >
-            <div className="flex flex-col items-start justify-between space-x-2 hover:underline">
+            <div className="flex flex-row items-start justify-between space-x-2">
               <p className="text-blue-700 cursor-pointer">
                 {post.metadata.title}
               </p>
-              <div className='flex justify-between items-center w-full !no-underline'>
-                <span className="text-sm text-gray-500">
-                  {new Date(post.metadata.publishedAt).toLocaleDateString('en-US', {
-                    month: 'short',
-                    year: 'numeric',
-                  })}
+             <span className="text-sm text-gray-500">
+               {new Date(post.metadata.publishedAt).toLocaleDateString('en-US', {
+                  month: 'short',
+                  year: 'numeric',
+                })}
                 </span>
-              {includeViews && (
-                <ViewCounter slug={post.slug} increment={false} className="text-sm text-gray-500" />
-              )}
-              </div>
+              
             </div>
           </Link>
         )).slice(0, thisYearTop5 ? 5 : pageSize)}

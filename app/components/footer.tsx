@@ -2,7 +2,7 @@ import {RssIcon, GithubIcon, InstagramIcon, EmailIcon, LinkedInIcon, XIcon} from
 
 export default function Footer() {
   return (
-    <footer className="mb-16">
+    <footer className="mb-16 border-t-1 mt-2">
       <ul className="font-sm mt-8 flex flex-col space-x-0 space-y-2 md:flex-row md:space-x-4 md:space-y-0">
         <li>
           <a
