@@ -21,7 +21,7 @@ export default async function Home() {
       <FortuneCookie getFortune={getFortune} />
       <h1 className="text-4xl font-bold pb-2">Fortune Cookie</h1>
       <p className="text-center text-gray-600 pb-4">Click the cookie to reveal your fortune!</p>
-      <p className="text-center text-xs text-gray-400 pb-4">Powered by Groq API, using model: gemma2-9b-it</p>
+      <p className="text-center text-xs text-gray-400 pb-4">Powered by Groq API, using model: meta-llama/llama-4-scout-17b-16e-instruct </p>
     </main>
   )
 }
