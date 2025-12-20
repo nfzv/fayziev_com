@@ -227,6 +227,7 @@ export default function TimeFlies() {
   return (
     <>
       <div className={styles.container}>
+        <h2 className={styles.label}>Time Flies</h2>
         <canvas ref={canvasRef} id="canvas" width="800" height="800" className={styles.canvas} />
       </div>
     </>
