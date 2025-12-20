@@ -12,7 +12,7 @@ export async function generateFortune(): Promise<string> {
     temperature: 1,
     max_tokens: 512,
     top_p: 1,
-    model: 'gemma2-9b-it',
+    model: 'meta-llama/llama-4-scout-17b-16e-instruct',
   };
   try {
     const fortune: Groq.Chat.ChatCompletion = await client.chat.completions.create(params);
