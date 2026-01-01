@@ -47,7 +47,8 @@ export function BlogPosts({ searchParams, pageSize = 50, includeTags = true, inc
     filteredBlogs = filteredBlogs
       .filter((post) => {
         const postYear = new Date(post.metadata.publishedAt).getFullYear()
-        return postYear === currentYear
+        return postYear === currentYear || 
+          postYear === currentYear - 1 // last year too
       })
       .sort((a, b) => {
         const viewsA = viewCounts[a.slug] || 0
