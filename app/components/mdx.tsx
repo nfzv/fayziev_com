@@ -6,6 +6,7 @@ import Prism from 'prismjs'
 // Add necessary language imports
 import 'prismjs/components/prism-yaml'
 import { InfoBox, InfoBoxAny } from './infobox'
+import {QuoteBoxAny, QuoteBox} from './quotebox'
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -122,7 +123,9 @@ let components = {
   code: Code,
   Table,
   InfoBox,
-  InfoBoxAny
+  InfoBoxAny,
+  QuoteBox,
+  QuoteBoxAny
 }
 
 export function CustomMDX(props) {

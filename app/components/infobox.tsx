@@ -8,7 +8,7 @@ export function InfoBox({ message }: InfoBoxProps) {
       <div className="flex">
         <div className="ml-3">
           <p className="text-md text-blue-700">
-            <strong className="font-bold italic"></strong>
+            <strong className="italic"></strong>
             {message}
           </p>
         </div>
