@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { MDXRemote } from 'next-mdx-remote/rsc'
 import React from 'react'
 import Prism from 'prismjs'
+import { MDXRemote } from 'next-mdx-remote-client/rsc'
+
 // Add necessary language imports
 import 'prismjs/components/prism-yaml'
 import { InfoBox, InfoBoxAny } from './infobox'
