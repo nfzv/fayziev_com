@@ -1,0 +1,90 @@
+Source-Available Personal and Research License (SAPRL) v1.0
+
+Copyright (c) 2026 Nurbek Fayziev
+All Rights Reserved.
+
+1. Definitions
+
+"Software" refers to the source code, binaries, models, assets, documentation, and any other materials contained in this repository.
+
+"Copyright Holder" refers to Nurbek Fayziev.
+
+"Permitted Use" refers only to personal, academic, educational, and non-profit research use.
+
+2. Limited License Grant
+
+Subject to the restrictions below, the Copyright Holder grants a limited,
+non-exclusive, non-transferable, revocable license to:
+
+• View the source code
+• Download the Software
+• Run the Software locally
+• Use the Software for personal learning, academic study, or non-profit research
+
+No other rights are granted.
+
+3. Prohibited Uses
+
+The following activities are strictly prohibited without explicit written
+permission from the Copyright Holder:
+
+a. Modification
+• Modifying, altering, translating, reverse engineering, or creating derivative works.
+
+b. Redistribution
+• Redistributing the Software in whole or in part.
+• Publishing mirrors, forks, or modified versions.
+
+c. Commercial Use
+• Selling the Software.
+• Using the Software in a commercial product or service.
+• Using the Software within a company or organization for profit.
+• Offering the Software as part of a SaaS, hosted service, or API.
+
+d. Integration
+• Embedding or integrating the Software into another project, application, library, or framework.
+
+e. AI / Machine Learning Training
+• Using the Software or any portion of its contents to train, fine-tune, or evaluate machine learning or artificial intelligence systems.
+
+f. Dataset Creation
+• Using the Software to create datasets, benchmarks, or derived training materials.
+
+4. Commercial or Extended Licensing
+
+Any use outside the scope of "Permitted Use" requires a separate written
+agreement with the Copyright Holder.
+
+To obtain such permission, users must contact the Copyright Holder and
+negotiate a commercial or extended-use license.
+
+5. Ownership
+
+The Software is licensed, not sold.
+All intellectual property rights remain exclusively with the Copyright Holder.
+
+No rights are granted except those explicitly stated in this license.
+
+6. Termination
+
+This license automatically terminates if any of the above restrictions are violated.
+
+Upon termination, the user must immediately cease use of the Software and
+delete all copies in their possession.
+
+7. Disclaimer of Warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+8. Limitation of Liability
+
+IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM,
+DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OR INABILITY TO USE
+THE SOFTWARE.
+
+9. Acceptance
+
+By accessing, downloading, or using the Software, you acknowledge that you
+have read and agree to be bound by the terms of this license.
